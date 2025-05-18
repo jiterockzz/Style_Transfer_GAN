@@ -1,7 +1,6 @@
 import torch
 from PIL import Image
 from torchvision.transforms import ToTensor, ToPILImage
-import torchvision.transforms as transforms
 
 def load_esrgan_model(model_path='models/RRDB_ESRGAN_x4.pth'):
     from basicsr.archs.rrdbnet_arch import RRDBNet

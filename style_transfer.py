@@ -1,7 +1,6 @@
 import torch
 import torch.nn as nn
 import torchvision.models as models
-import torchvision.transforms as transforms
 
 class VGGFeatures(nn.Module):
     def __init__(self):
@@ -20,7 +19,7 @@ def gram_matrix(tensor):
     G = torch.bmm(features, features.transpose(1, 2))
     return G / (C * H * W)
 
-def style_transfer(content_img, style_img, num_steps=100, style_weight=1e6, content_weight=1):
+def style_transfer(content_img, style_img, num_steps=300, style_weight=1e6, content_weight=1):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     cnn = VGGFeatures().to(device).eval()
 
